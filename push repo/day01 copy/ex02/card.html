@@ -1,0 +1,33 @@
+<html>
+
+  <link rel="stylesheet" href="card.css">
+  
+  <script>
+    function changetext()
+    {
+      document.getElementById('name').innerHTML = 'tentacruel';
+      document.getElementById('paragraph').innerHTML = 'Enemy of Minions';
+    }
+    function changeimg()
+    {
+      document.getElementById('myImage').src='tenta.png'
+    }
+    function createcard()
+    {
+        const node = document.getElementById("card");
+        const clone = node.cloneNode(true);
+        document.body.appendChild(clone);
+    }
+  </script>
+  <body id="body">
+    <div id="div1">
+      <div class="card" id="card">
+        <img id="myImage" src="clone.jpeg" alt="paolo" style="width:100%">
+        <h1 id="name">Paolino</h1>
+        <p id="paragraph" class="title">CEO & CoFounder of minion</p>
+        <p>42RomaLuiss</p>
+          <a onclick='createcard()'><button>CLONE</button></a>
+      </div>
+    </div>
+  </body>
+  </html>

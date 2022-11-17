@@ -1,0 +1,27 @@
+<html>
+
+  <link rel="stylesheet" href="card.css">
+  
+  <script>
+    function changetext()
+    {
+      document.getElementById('name').innerHTML = 'tentacruel';
+      document.getElementById('paragraph').innerHTML = 'Enemy of Minions';
+    }
+    function changeimg()
+    {
+      document.getElementById('myImage').src='tenta.png'
+    }
+  </script>
+
+  <div class="card">
+    <img id="myImage" src="minon.jpeg" alt="paolo" style="width:100%">
+    <h1 id="name">Paolino</h1>
+    <p id="paragraph" class="title">CEO & CoFounder of minion</p>
+    <p>42RomaLuiss</p>
+    <div class="buttons">
+      <a onclick='changeimg()'><button>Become</button></a>
+      <a onclick='changetext()'><button>Evil</button></a>
+    </div>
+  </div>
+  </html>
