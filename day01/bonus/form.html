@@ -1,0 +1,172 @@
+<html>
+<head>
+<link rel="stylesheet" href="form.css">
+<script>
+function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+
+function check() {
+  document.getElementById("red").checked = true;
+}
+function uncheck() {
+  document.getElementById("red").checked = false;
+}
+
+function myFunction() {
+  document.getElementById("10").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  let y = 0;
+  if(x == "")
+  {
+    alert("Name must be filled out");
+      return false;
+  }  
+
+  while(y < x.length)
+  {
+    if (!(isNaN(x[y]))) {
+      alert("Invalid name");
+      return false;
+    }  
+    y++;
+  }
+}
+
+function validateZip()
+{
+  let x = document.forms["myForm"]["fzip"].value;
+  let y = 0;
+  if(x == "")
+  {
+    alert("Zip must be filled out");
+      return false;
+  }
+  while(y < x.length)
+  {
+    if (isNaN(x[y])) {
+      alert("Invalid ZIP");
+      return false;
+    }  
+    y++;
+  }
+  if(y > 5)
+  {
+    alert("Zip to long");
+    return false;
+  }
+  if(y < 5)
+  {
+    alert("Zip to short");
+    return false;
+  }
+}
+
+function validateBox()
+{
+  let x = document.getElementById("occupation1").checked;
+  let y = document.getElementById("occupation2").checked
+  if (x == true)
+  {
+    const mydiv = document.createElement("div");
+    mydiv.setAttribute("class", "dropdown");
+    mydiv.setAttribute("id", "dropdown1");
+    document.getElementById("Form").appendChild(mydiv);
+    const Uni = document.createElement("button");
+    Uni.setAttribute("class", "dropbtn");
+    Uni.setAttribute("onclick","myFunction()")
+    Uni.innerHTML = "University";
+    document.getElementById("dropdown1").appendChild(Uni);
+    const tenda = document.createElement("div");
+    tenda.setAttribute("class", "dropdown-content");
+    tenda.setAttribute("id", "10");
+    document.getElementById("dropdown1").appendChild(tenda);
+    const Sapienza = document.createElement("a");
+    Sapienza.setAttribute("href", "#");
+    Sapienza.innerHTML = "sapienza";
+    document.getElementById("10").appendChild(Sapienza);
+    const Luiss = document.createElement("a");
+    Luiss.setAttribute("href", "#");
+    Luiss.innerHTML = "Luiss";
+    document.getElementById("10").appendChild(Luiss);
+    const Roma3 = document.createElement("a");
+    Roma3.setAttribute("href", "#");
+    Roma3.innerHTML = "Roma3";
+    document.getElementById("10").appendChild(Roma3);
+
+
+  }
+  else if(y == true)
+  {
+    const p = document.createElement("p");
+    p.innerHTML = "Job Description";
+    document.getElementById("Form").appendChild(p);
+    const btn = document.createElement("input");
+    btn.innerHTML = "Hello Button";
+    document.getElementById("Form").appendChild(btn);
+  }
+}
+
+
+</script>
+</head>
+<body>
+
+<h2>MINION FORM</h2>
+
+<form name="myForm" action="/action_page.php" method="post" id="Form">
+  Name: <input id="x" onchange="validateForm()" type="text" name="fname">
+  <br>
+  <br>
+  What is your gender?<br>
+  <input type="radio" name="gender" id="red">M<br>
+  <input type="radio" name="gender" id="blue">F
+  <br>
+  <br>
+  postal code: <input id="y" onchange="validateZip()" type="text" name="fzip">
+  <br>
+  <br>
+  <p>What os your occupation?</p>
+  <input type="checkbox" id="occupation1" onchange="validateBox()" name="occupation">
+  <label for="vehicle1"> I'm a Student</label><br>
+  <input type="checkbox" id="occupation2" onchange="validateBox()" name="occupation" >
+  <label for="vehicle2"> I'm a Worker</label><br><br>
+</form>
+<br>
+<br>
+<br><!--
+<div class="dropdown" >
+    <button onclick="myFunction()" class="dropbtn">University</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="#">Sapienza</a>
+        <a href="#">Luiss</a>
+        <a href="#">Roma3</a>
+    </div>
+</div>-->
+<br>
+<br>
+<br>
+<input type="submit" value="Submit" onclick="validateForm()"> <input type="reset" value="Reset">
+
+</body>
+</html>
